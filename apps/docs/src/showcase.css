@@ -1,0 +1,215 @@
+body.baseui-interface-active {
+  margin: 0;
+  background: var(--bui-color-canvas, #f4f4f1);
+}
+
+body.baseui-interface-active::before,
+body.baseui-interface-active::after {
+  display: none;
+}
+
+.baseui-showcase-root {
+  min-height: 100vh;
+}
+
+.baseui-showcase-root .bui-app-content {
+  padding-block: 48px 80px;
+}
+
+.baseui-showcase-brand {
+  display: flex;
+  width: 100%;
+  min-width: 0;
+  align-items: center;
+  gap: 10px;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: var(--bui-color-text);
+  cursor: pointer;
+  text-align: left;
+}
+
+.baseui-showcase-brand > span:last-child {
+  display: grid;
+  min-width: 0;
+  gap: 1px;
+}
+
+.baseui-showcase-brand strong {
+  font-size: 14px;
+  letter-spacing: -0.02em;
+}
+
+.baseui-showcase-brand small {
+  color: var(--bui-color-text-tertiary);
+  font-size: 10px;
+  font-weight: 500;
+}
+
+.baseui-section-heading {
+  display: grid;
+  max-width: 820px;
+  gap: 12px;
+}
+
+.baseui-example {
+  min-width: 0;
+}
+
+.baseui-example-header {
+  padding: 16px 20px;
+  border-bottom: 1px solid var(--bui-color-border);
+}
+
+.baseui-example-header > div:first-child {
+  display: grid;
+  gap: 4px;
+}
+
+.baseui-example-stage {
+  min-height: 150px;
+  padding: 24px 20px;
+}
+
+.baseui-example-code {
+  display: block;
+  padding: 0;
+  border-top: 1px solid var(--bui-color-border);
+}
+
+.baseui-example-code .bui-code-block-shell {
+  border: 0;
+}
+
+.baseui-example-code .bui-code-block {
+  max-height: 260px;
+}
+
+.baseui-spacing-row {
+  display: grid;
+  grid-template-columns: 60px minmax(0, 1fr);
+  align-items: center;
+  gap: 16px;
+}
+
+.baseui-spacing-row > span {
+  display: block;
+  height: 12px;
+  border-radius: var(--bui-radius);
+  background: var(--bui-color-accent);
+}
+
+.baseui-radius-sample,
+.baseui-shadow-low,
+.baseui-shadow-medium,
+.baseui-shadow-high {
+  width: 100%;
+  height: 48px;
+  border-radius: 4px;
+  background: var(--bui-color-surface);
+}
+
+.baseui-radius-sample {
+  border: 2px solid var(--bui-color-accent);
+}
+
+.baseui-shadow-low {
+  box-shadow: var(--bui-shadow-low);
+}
+
+.baseui-shadow-medium {
+  box-shadow: var(--bui-shadow-medium);
+}
+
+.baseui-shadow-high {
+  box-shadow: var(--bui-shadow-high);
+}
+
+.baseui-shell-preview {
+  display: grid;
+  height: 520px;
+  grid-template-columns: auto minmax(0, 1fr);
+  overflow: hidden;
+  border: 1px solid var(--bui-color-border-strong);
+  border-radius: 4px;
+  background: var(--bui-color-canvas);
+}
+
+.baseui-shell-preview .bui-sidebar {
+  width: 220px;
+  min-height: 0;
+}
+
+.baseui-shell-preview-workspace {
+  min-width: 0;
+}
+
+.baseui-shell-preview-content {
+  padding: 32px;
+}
+
+.baseui-shell-preview .bui-topbar {
+  position: static;
+}
+
+.baseui-showcase-root .bui-popover-content {
+  padding: 16px;
+}
+
+.baseui-showcase-root .bui-dropdown-menu .bui-divider {
+  margin-block: 4px;
+}
+
+.baseui-showcase-root .bui-command-menu {
+  width: min(100%, 520px);
+}
+
+@media (min-width: 1100px) {
+  .baseui-example.is-full-width {
+    grid-column: 1 / -1;
+  }
+}
+
+@media (max-width: 900px) {
+  .baseui-showcase-root .bui-app-content {
+    padding-block: 32px 64px;
+  }
+
+  .baseui-shell-preview .bui-sidebar {
+    width: 72px;
+  }
+
+  .baseui-shell-preview .bui-sidebar-label,
+  .baseui-shell-preview .bui-sidebar-badge,
+  .baseui-shell-preview .bui-sidebar-brand strong {
+    display: none;
+  }
+}
+
+@media (max-width: 640px) {
+  .baseui-showcase-root .bui-app-content {
+    padding-block: 24px 48px;
+  }
+
+  .baseui-example-stage {
+    padding: 20px 16px;
+  }
+
+  .baseui-example-header {
+    padding: 14px 16px;
+  }
+
+  .baseui-shell-preview {
+    display: block;
+    height: 440px;
+  }
+
+  .baseui-shell-preview .bui-sidebar {
+    display: none;
+  }
+
+  .baseui-shell-preview-content {
+    padding: 20px;
+  }
+}

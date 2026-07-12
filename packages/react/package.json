@@ -1,0 +1,147 @@
+{
+  "name": "@baseui.sh/react",
+  "version": "0.1.0",
+  "description": "A restrained, accessible React component library and design language for product interfaces.",
+  "type": "module",
+  "license": "Apache-2.0",
+  "author": "baseui.sh contributors",
+  "homepage": "https://baseui.sh",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/baseui-sh/baseui.git",
+    "directory": "packages/react"
+  },
+  "bugs": {
+    "url": "https://github.com/baseui-sh/baseui/issues"
+  },
+  "funding": {
+    "type": "individual",
+    "url": "https://github.com/sponsors/baseui-sh"
+  },
+  "sideEffects": [
+    "./dist/styles.css",
+    "./dist/tokens.css"
+  ],
+  "main": "./dist/index.js",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "style": "./dist/styles.css",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "default": "./dist/index.js"
+    },
+    "./styles.css": "./dist/styles.css",
+    "./tokens.css": "./dist/tokens.css",
+    "./tokens": {
+      "types": "./dist/tokens.d.ts",
+      "import": "./dist/tokens.js",
+      "default": "./dist/tokens.js"
+    },
+    "./icons": {
+      "types": "./dist/icons.d.ts",
+      "import": "./dist/icons.js",
+      "default": "./dist/icons.js"
+    },
+    "./foundations": {
+      "types": "./dist/foundations/index.d.ts",
+      "import": "./dist/foundations/index.js",
+      "default": "./dist/foundations/index.js"
+    },
+    "./actions": {
+      "types": "./dist/actions/index.d.ts",
+      "import": "./dist/actions/index.js",
+      "default": "./dist/actions/index.js"
+    },
+    "./forms": {
+      "types": "./dist/forms/index.d.ts",
+      "import": "./dist/forms/index.js",
+      "default": "./dist/forms/index.js"
+    },
+    "./data-display": {
+      "types": "./dist/data-display/index.d.ts",
+      "import": "./dist/data-display/index.js",
+      "default": "./dist/data-display/index.js"
+    },
+    "./feedback": {
+      "types": "./dist/feedback/index.d.ts",
+      "import": "./dist/feedback/index.js",
+      "default": "./dist/feedback/index.js"
+    },
+    "./navigation": {
+      "types": "./dist/navigation/index.d.ts",
+      "import": "./dist/navigation/index.js",
+      "default": "./dist/navigation/index.js"
+    },
+    "./disclosure": {
+      "types": "./dist/disclosure/index.d.ts",
+      "import": "./dist/disclosure/index.js",
+      "default": "./dist/disclosure/index.js"
+    },
+    "./overlays": {
+      "types": "./dist/overlays/index.d.ts",
+      "import": "./dist/overlays/index.js",
+      "default": "./dist/overlays/index.js"
+    },
+    "./patterns": {
+      "types": "./dist/patterns/index.d.ts",
+      "import": "./dist/patterns/index.js",
+      "default": "./dist/patterns/index.js"
+    },
+    "./hooks": {
+      "types": "./dist/hooks/index.d.ts",
+      "import": "./dist/hooks/index.js",
+      "default": "./dist/hooks/index.js"
+    },
+    "./manifest.json": "./component-manifest.json",
+    "./manifest.schema.json": "./component-manifest.schema.json",
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "dist",
+    "README.md",
+    "DESIGN_LANGUAGE.md",
+    "ACCESSIBILITY.md",
+    "CHANGELOG.md",
+    "LICENSE",
+    "component-manifest.json",
+    "component-manifest.schema.json"
+  ],
+  "scripts": {
+    "build": "npm run clean && tsc -p tsconfig.build.json && node scripts/copy-assets.mjs",
+    "clean": "node -e \"require('node:fs').rmSync('dist',{recursive:true,force:true})\"",
+    "check": "tsc -p tsconfig.json --noEmit",
+    "test": "npm run build && node --test",
+    "prepack": "npm run build"
+  },
+  "peerDependencies": {
+    "react": ">=18.2.0 <20",
+    "react-dom": ">=18.2.0 <20"
+  },
+  "devDependencies": {
+    "@types/react": "^19.0.0",
+    "@types/react-dom": "^19.0.0",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "typescript": "^5.8.0"
+  },
+  "publishConfig": {
+    "access": "public",
+    "provenance": true
+  },
+  "engines": {
+    "node": ">=20.19.0"
+  },
+  "keywords": [
+    "baseui.sh",
+    "react",
+    "components",
+    "component-library",
+    "design-system",
+    "typescript",
+    "dashboard",
+    "accessible",
+    "ui"
+  ]
+}

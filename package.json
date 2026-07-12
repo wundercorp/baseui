@@ -1,0 +1,37 @@
+{
+  "name": "baseui.sh",
+  "version": "0.1.0",
+  "private": true,
+  "description": "The open-source baseui.sh design language, React component library, documentation, and examples.",
+  "workspaces": [
+    "packages/*",
+    "apps/*",
+    "examples/*"
+  ],
+  "scripts": {
+    "build": "npm run build --workspaces --if-present",
+    "build:library": "npm run build --workspace @baseui.sh/react",
+    "dev": "npm run dev --workspace @baseui.sh/docs",
+    "dev:docs": "npm run dev --workspace @baseui.sh/docs",
+    "dev:example": "npm run dev --workspace @baseui.sh/example-vite-react",
+    "check": "npm run check --workspaces --if-present",
+    "test": "npm run test --workspace @baseui.sh/react",
+    "ci": "npm run check && npm run test && npm run build && npm run verify:package && npm run verify:consumer",
+    "clean": "node scripts/clean.mjs",
+    "pack": "npm pack --workspace @baseui.sh/react --pack-destination .artifacts",
+    "verify:package": "node scripts/verify-package.mjs",
+    "changeset": "changeset",
+    "version-packages": "changeset version",
+    "release": "npm run build:library && changeset publish",
+    "verify:consumer": "node scripts/verify-consumer.mjs"
+  },
+  "devDependencies": {
+    "@changesets/cli": "^2.29.0",
+    "typescript": "^5.8.0"
+  },
+  "engines": {
+    "node": ">=20.19.0"
+  },
+  "packageManager": "npm@10.9.2",
+  "license": "Apache-2.0"
+}

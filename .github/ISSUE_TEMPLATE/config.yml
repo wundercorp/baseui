@@ -1,0 +1,8 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Support and usage questions
+    url: https://github.com/baseui-sh/baseui/discussions
+    about: Ask implementation questions in Discussions.
+  - name: Security report
+    url: mailto:security@baseui.sh
+    about: Report vulnerabilities privately.

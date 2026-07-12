@@ -1,0 +1,124 @@
+{
+  "$schema": "./component-manifest.schema.json",
+  "name": "baseui.sh",
+  "version": "0.1.0",
+  "radius": "4px",
+  "themes": [
+    "light",
+    "dark",
+    "system"
+  ],
+  "categories": {
+    "foundations": [
+      "BaseUIProvider",
+      "Box",
+      "Stack",
+      "Inline",
+      "Grid",
+      "Container",
+      "Spacer",
+      "Divider",
+      "VisuallyHidden",
+      "Heading",
+      "Text",
+      "Eyebrow",
+      "Label",
+      "Link",
+      "Icon",
+      "ColorSwatch",
+      "TokenPreview"
+    ],
+    "actions": [
+      "Button",
+      "IconButton",
+      "ButtonGroup",
+      "CopyButton",
+      "Tag"
+    ],
+    "forms": [
+      "Field",
+      "Input",
+      "SearchInput",
+      "Textarea",
+      "Select",
+      "Checkbox",
+      "Radio",
+      "Switch",
+      "Slider",
+      "FileUpload",
+      "DateInput",
+      "TimeInput",
+      "FormSection",
+      "FormActions"
+    ],
+    "dataDisplay": [
+      "Card",
+      "CardHeader",
+      "CardContent",
+      "CardFooter",
+      "Badge",
+      "StatusBadge",
+      "Avatar",
+      "AvatarGroup",
+      "MetricCard",
+      "Stat",
+      "Progress",
+      "Meter",
+      "Table",
+      "TableContainer",
+      "DescriptionList",
+      "DescriptionItem",
+      "List",
+      "ListItem",
+      "Code",
+      "CodeBlock",
+      "Kbd",
+      "NotificationBadge",
+      "Rating"
+    ],
+    "feedback": [
+      "Alert",
+      "Callout",
+      "EmptyState",
+      "Spinner",
+      "Skeleton",
+      "Toast",
+      "ToastRegion"
+    ],
+    "navigation": [
+      "Tabs",
+      "SegmentedControl",
+      "Breadcrumbs",
+      "Pagination",
+      "Sidebar",
+      "Topbar",
+      "PageHeader"
+    ],
+    "disclosure": [
+      "Accordion",
+      "AccordionItem",
+      "Collapsible",
+      "Stepper",
+      "Timeline"
+    ],
+    "overlays": [
+      "Dialog",
+      "Drawer",
+      "Tooltip",
+      "Popover",
+      "DropdownMenu",
+      "DropdownItem"
+    ],
+    "patterns": [
+      "AppShell",
+      "LogoMark",
+      "CommandMenu",
+      "DataToolbar"
+    ],
+    "hooks": [
+      "useBaseUI",
+      "useDisclosure",
+      "useControllableId"
+    ]
+  }
+}

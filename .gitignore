@@ -1,0 +1,212 @@
+# Dependencies
+node_modules/
+bower_components/
+jspm_packages/
+web_modules/
+
+# Plug'n'Play
+.pnp
+.pnp.js
+.pnp.cjs
+.pnp.data.json
+
+# Yarn runtime and generated state
+.yarn/*
+!.yarn/patches/
+!.yarn/plugins/
+!.yarn/releases/
+!.yarn/sdks/
+!.yarn/versions/
+.yarnrc.local.yml
+
+# Package-manager caches
+.npm/
+.pnpm-store/
+.pnpm-debug.log*
+.yarn-cache/
+.corepack/
+.bun/
+.deno/
+
+# Build outputs
+dist/
+build/
+lib/
+out/
+.output/
+.vercel/output/
+.next/
+.nuxt/
+.svelte-kit/
+.docusaurus/
+storybook-static/
+public/build/
+
+# Bundler and compiler caches
+.vite/
+.vite-inspect/
+.parcel-cache/
+.rollup.cache/
+.rpt2_cache/
+.rts2_cache_cjs/
+.rts2_cache_es/
+.rts2_cache_umd/
+.esbuild/
+.swc/
+.turbo/
+.nx/
+.moon/cache/
+.angular/
+.cache/
+.cache-loader/
+*.tsbuildinfo
+vite.config.*.timestamp-*
+vitest.config.*.timestamp-*
+
+# Test, benchmark, and coverage output
+coverage/
+.nyc_output/
+.junit/
+junit.xml
+junit-*.xml
+test-results/
+playwright-report/
+blob-report/
+chromatic-diagnostics.json
+chromatic.log
+playwright/.cache/
+cypress/screenshots/
+cypress/videos/
+cypress/downloads/
+benchmarks/results/
+
+# Generated documentation output
+.docs-cache/
+docs/.vitepress/cache/
+docs/.vitepress/dist/
+
+# Logs and diagnostic reports
+logs/
+*.log
+*.log.*
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+lerna-debug.log*
+debug.log*
+report.[0-9]*.[0-9]*.[0-9]*.[0-9]*.json
+
+# Runtime data
+pids/
+*.pid
+*.seed
+*.pid.lock
+*.lcov
+
+# Environment and local configuration
+.env
+.env.*
+!.env.example
+!.env.*.example
+*.local
+.npmrc.local
+.npmrc.private
+
+# Local secrets and certificates
+*.pem
+*.key
+*.p12
+*.pfx
+*.cer
+*.crt
+*.der
+
+# Release and package artifacts
+.artifacts/
+artifacts/
+.release/
+release-artifacts/
+*.tgz
+*.tar
+*.tar.gz
+*.zip
+*.sha256
+*.sha512
+
+# Cloud and deployment state
+.vercel/
+.netlify/
+.wrangler/
+.dev.vars
+.dev.vars.*
+.firebase/
+.serverless/
+.sst/
+.open-next/
+.amplify/
+
+# Linter and formatter caches
+.eslintcache
+.stylelintcache
+.prettiercache
+.biome/
+
+# Temporary files
+tmp/
+temp/
+.tmp/
+.temp/
+*.tmp
+*.temp
+*.bak
+*.backup
+*.orig
+*.rej
+*.swp
+*.swo
+*~
+
+# Editor and IDE files
+.idea/
+*.iml
+*.ipr
+*.iws
+.vscode/*
+!.vscode/extensions.json
+!.vscode/launch.json
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/*.code-snippets
+.vs/
+*.sublime-project
+*.sublime-workspace
+.history/
+
+# Operating-system files
+.DS_Store
+.AppleDouble
+.LSOverride
+._*
+.DocumentRevisions-V100
+.fseventsd
+.Spotlight-V100
+.TemporaryItems
+.Trashes
+.VolumeIcon.icns
+.com.apple.timemachine.donotpresent
+Thumbs.db
+Thumbs.db:encryptable
+ehthumbs.db
+ehthumbs_vista.db
+Desktop.ini
+$RECYCLE.BIN/
+
+# Node REPL and tooling history
+.node_repl_history
+.node_history
+
+# Miscellaneous generated state
+*.patch.tmp
+*.prof
+*.heapprofile
+*.cpuprofile

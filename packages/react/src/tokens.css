@@ -1,0 +1,124 @@
+:root,
+:root[data-theme="light"],
+[data-bui-theme="light"] {
+  --bui-radius: 4px;
+  --bui-font-sans: Inter, "Helvetica Neue", Helvetica, Arial, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --bui-font-mono: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
+  --bui-color-canvas: #f4f4f1;
+  --bui-color-surface: #ffffff;
+  --bui-color-surface-subtle: #f8f8f6;
+  --bui-color-surface-muted: #efefeb;
+  --bui-color-surface-inverse: #171716;
+  --bui-color-text: #171716;
+  --bui-color-text-secondary: #595955;
+  --bui-color-text-tertiary: #7a7a74;
+  --bui-color-text-inverse: #ffffff;
+  --bui-color-border: #deded8;
+  --bui-color-border-strong: #c5c5bd;
+  --bui-color-border-focus: #d42d24;
+  --bui-color-accent: #d42d24;
+  --bui-color-accent-hover: #b9231b;
+  --bui-color-accent-active: #991d17;
+  --bui-color-accent-soft: #fff0ee;
+  --bui-color-success: #247a4d;
+  --bui-color-success-soft: #edf7f1;
+  --bui-color-warning: #996115;
+  --bui-color-warning-soft: #fff7e8;
+  --bui-color-danger: #bd2c26;
+  --bui-color-danger-soft: #fff0ef;
+  --bui-color-info: #365f8d;
+  --bui-color-info-soft: #eef4fa;
+  --bui-shadow-low: 0 1px 2px rgba(23, 23, 22, 0.04);
+  --bui-shadow-medium: 0 8px 24px rgba(23, 23, 22, 0.08);
+  --bui-shadow-high: 0 18px 48px rgba(23, 23, 22, 0.14);
+  --bui-space-0: 0;
+  --bui-space-1: 4px;
+  --bui-space-2: 8px;
+  --bui-space-3: 12px;
+  --bui-space-4: 16px;
+  --bui-space-5: 20px;
+  --bui-space-6: 24px;
+  --bui-space-8: 32px;
+  --bui-space-10: 40px;
+  --bui-space-12: 48px;
+  --bui-space-16: 64px;
+  --bui-space-20: 80px;
+  --bui-control-small: 32px;
+  --bui-control-medium: 40px;
+  --bui-control-large: 48px;
+  --bui-content-narrow: 720px;
+  --bui-content-default: 1120px;
+  --bui-content-wide: 1440px;
+  --bui-duration-fast: 100ms;
+  --bui-duration-standard: 160ms;
+  --bui-duration-slow: 240ms;
+  --bui-easing-standard: cubic-bezier(0.2, 0, 0, 1);
+  --bui-z-dropdown: 1000;
+  --bui-z-sticky: 1100;
+  --bui-z-overlay: 1200;
+  --bui-z-modal: 1300;
+  --bui-z-toast: 1400;
+}
+
+:root[data-theme="dark"],
+[data-bui-theme="dark"] {
+  --bui-color-canvas: #121310;
+  --bui-color-surface: #191a17;
+  --bui-color-surface-subtle: #1f201d;
+  --bui-color-surface-muted: #272823;
+  --bui-color-surface-inverse: #f1f1ec;
+  --bui-color-text: #f1f1ec;
+  --bui-color-text-secondary: #b2b2aa;
+  --bui-color-text-tertiary: #8e8e86;
+  --bui-color-text-inverse: #171716;
+  --bui-color-border: #32332e;
+  --bui-color-border-strong: #494a43;
+  --bui-color-border-focus: #ef6259;
+  --bui-color-accent: #ef6259;
+  --bui-color-accent-hover: #ff756c;
+  --bui-color-accent-active: #d94f47;
+  --bui-color-accent-soft: #36201d;
+  --bui-color-success: #6ec596;
+  --bui-color-success-soft: #1b2c22;
+  --bui-color-warning: #e1aa5b;
+  --bui-color-warning-soft: #31291d;
+  --bui-color-danger: #f27a73;
+  --bui-color-danger-soft: #35201f;
+  --bui-color-info: #8eb5df;
+  --bui-color-info-soft: #1d2731;
+  --bui-shadow-low: 0 1px 2px rgba(0, 0, 0, 0.24);
+  --bui-shadow-medium: 0 10px 28px rgba(0, 0, 0, 0.28);
+  --bui-shadow-high: 0 20px 54px rgba(0, 0, 0, 0.4);
+}
+
+@media (prefers-color-scheme: dark) {
+  [data-bui-theme="system"] {
+    --bui-color-canvas: #121310;
+    --bui-color-surface: #191a17;
+    --bui-color-surface-subtle: #1f201d;
+    --bui-color-surface-muted: #272823;
+    --bui-color-surface-inverse: #f1f1ec;
+    --bui-color-text: #f1f1ec;
+    --bui-color-text-secondary: #b2b2aa;
+    --bui-color-text-tertiary: #8e8e86;
+    --bui-color-text-inverse: #171716;
+    --bui-color-border: #32332e;
+    --bui-color-border-strong: #494a43;
+    --bui-color-border-focus: #ef6259;
+    --bui-color-accent: #ef6259;
+    --bui-color-accent-hover: #ff756c;
+    --bui-color-accent-active: #d94f47;
+    --bui-color-accent-soft: #36201d;
+    --bui-color-success: #6ec596;
+    --bui-color-success-soft: #1b2c22;
+    --bui-color-warning: #e1aa5b;
+    --bui-color-warning-soft: #31291d;
+    --bui-color-danger: #f27a73;
+    --bui-color-danger-soft: #35201f;
+    --bui-color-info: #8eb5df;
+    --bui-color-info-soft: #1d2731;
+    --bui-shadow-low: 0 1px 2px rgba(0, 0, 0, 0.24);
+    --bui-shadow-medium: 0 10px 28px rgba(0, 0, 0, 0.28);
+    --bui-shadow-high: 0 20px 54px rgba(0, 0, 0, 0.4);
+  }
+}
