@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.2.0
+
+### Minor Changes
+
+- ebab655: Adopt Phosphor Icons as the canonical production icon dependency, migrate built-in component glyphs to Phosphor, add semantic and full-library icon entry points, and preserve circular spinner geometry.
+
 All notable changes to baseui.sh are documented here.
 
 ## 0.1.0
