@@ -4,6 +4,9 @@
 
 A restrained, accessible component library and design language for React product interfaces.
 
+<img width="2017" height="1186" alt="Screenshot 2026-07-12 at 6 00 56 AM" src="https://github.com/user-attachments/assets/9fc6684f-25d1-4c6a-af7d-46caaae52fe6" />
+<img width="2027" height="1198" alt="Screenshot 2026-07-12 at 6 00 43 AM" src="https://github.com/user-attachments/assets/9f82e3c8-2c94-401c-b39e-da418b2c7594" />
+
 baseui.sh is maintained as an independent open-source repository. Product applications consume it as a normal package rather than copying dashboard-specific CSS or importing source from another monorepo.
 
 ## Install
