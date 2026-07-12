@@ -25,6 +25,7 @@
       "Label",
       "Link",
       "Icon",
+      "PhosphorIcon",
       "ColorSwatch",
       "TokenPreview"
     ],
@@ -119,6 +120,17 @@
       "useBaseUI",
       "useDisclosure",
       "useControllableId"
+    ]
+  },
+  "iconLibrary": {
+    "name": "Phosphor Icons",
+    "package": "@phosphor-icons/react",
+    "version": "^2.1.10",
+    "semanticIcons": 36,
+    "entryPoints": [
+      "@baseui.sh/react/icons",
+      "@baseui.sh/react/phosphor",
+      "@baseui.sh/react/phosphor/ssr"
     ]
   }
 }

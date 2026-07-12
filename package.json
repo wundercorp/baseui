@@ -27,6 +27,7 @@
   },
   "devDependencies": {
     "@changesets/cli": "^2.29.0",
+    "@types/node": "20.19.0",
     "typescript": "^5.8.0"
   },
   "engines": {

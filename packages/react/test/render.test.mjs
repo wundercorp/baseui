@@ -75,6 +75,7 @@ test("renders accessible icon and rating labels", () => {
   );
 
   assert.match(markup, /<title>Search<\/title>/);
+  assert.match(markup, /viewBox="0 0 256 256"/);
   assert.match(markup, /aria-label="1 of 5"/);
   assert.match(markup, /role="alert"/);
 });

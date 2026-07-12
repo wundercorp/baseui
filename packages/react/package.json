@@ -8,15 +8,15 @@
   "homepage": "https://baseui.sh",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/baseui-sh/baseui.git",
+    "url": "git+https://github.com/wundercorp/baseui.git",
     "directory": "packages/react"
   },
   "bugs": {
-    "url": "https://github.com/baseui-sh/baseui/issues"
+    "url": "https://github.com/wundercorp/baseui/issues"
   },
   "funding": {
     "type": "individual",
-    "url": "https://github.com/sponsors/baseui-sh"
+    "url": "https://github.com/sponsors/wundercorp"
   },
   "sideEffects": [
     "./dist/styles.css",
@@ -43,6 +43,16 @@
       "types": "./dist/icons.d.ts",
       "import": "./dist/icons.js",
       "default": "./dist/icons.js"
+    },
+    "./phosphor": {
+      "types": "./dist/phosphor.d.ts",
+      "import": "./dist/phosphor.js",
+      "default": "./dist/phosphor.js"
+    },
+    "./phosphor/ssr": {
+      "types": "./dist/phosphor-ssr.d.ts",
+      "import": "./dist/phosphor-ssr.js",
+      "default": "./dist/phosphor-ssr.js"
     },
     "./foundations": {
       "types": "./dist/foundations/index.d.ts",
@@ -104,6 +114,8 @@
     "DESIGN_LANGUAGE.md",
     "ACCESSIBILITY.md",
     "CHANGELOG.md",
+    "ICONS.md",
+    "THIRD_PARTY_NOTICES.md",
     "LICENSE",
     "component-manifest.json",
     "component-manifest.schema.json"
@@ -142,6 +154,11 @@
     "typescript",
     "dashboard",
     "accessible",
-    "ui"
-  ]
+    "ui",
+    "phosphor",
+    "icons"
+  ],
+  "dependencies": {
+    "@phosphor-icons/react": "^2.1.10"
+  }
 }

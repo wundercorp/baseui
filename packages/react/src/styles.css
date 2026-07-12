@@ -1320,10 +1320,11 @@
 
 .bui-spinner {
   display: inline-block;
+  box-sizing: border-box;
   flex: 0 0 auto;
   border: 2px solid color-mix(in srgb, currentColor 24%, transparent);
   border-top-color: currentColor;
-  border-radius: var(--bui-radius);
+  border-radius: var(--bui-radius-circle);
   animation: bui-spin 700ms linear infinite;
 }
 

@@ -18,7 +18,7 @@ import { Field, Input } from "@baseui.sh/react/forms";
 import { Card } from "@baseui.sh/react/data-display";
 import { Dialog } from "@baseui.sh/react/overlays";
 import { baseUITokens } from "@baseui.sh/react/tokens";
-import { Icon } from "@baseui.sh/react/icons";
+import { ArrowRightIcon, Icon, PhosphorIcon } from "@baseui.sh/react/icons";
 import manifest from "@baseui.sh/react/manifest.json" with { type: "json" };
 
 const markup = renderToStaticMarkup(
@@ -30,6 +30,7 @@ const markup = renderToStaticMarkup(
       null,
       React.createElement(Field, { label: "Name" }, React.createElement(Input, { defaultValue: "baseui.sh" })),
       React.createElement(Button, { leadingIcon: React.createElement(Icon, { name: "check" }) }, "Save"),
+      React.createElement(PhosphorIcon, { icon: ArrowRightIcon, label: "Continue" }),
       React.createElement(Dialog, { open: false, title: "Hidden", onClose() {} }),
     ),
   ),
@@ -74,7 +75,7 @@ try {
     execFileSync(process.execPath, ["smoke.mjs"], { cwd: consumerDirectory, stdio: "inherit" });
 
     const installedPackage = join(consumerDirectory, "node_modules", "@baseui.sh", "react");
-    for (const path of ["dist/styles.css", "dist/tokens.css", "dist/index.d.ts"]) {
+    for (const path of ["dist/styles.css", "dist/tokens.css", "dist/index.d.ts", "dist/phosphor.js", "dist/phosphor-ssr.js"]) {
       readFileSync(join(installedPackage, path));
     }
     console.log(`Verified ${packed.name}@${packed.version} with React ${reactVersion}.`);

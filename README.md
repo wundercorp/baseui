@@ -62,13 +62,17 @@ Tokens and icons are independently consumable:
 
 ```tsx
 import { baseUITokens } from "@baseui.sh/react/tokens";
-import { Icon } from "@baseui.sh/react/icons";
+import { Icon, PhosphorIcon } from "@baseui.sh/react/icons";
+import { RocketLaunchIcon } from "@baseui.sh/react/phosphor";
 import "@baseui.sh/react/tokens.css";
+
+<Icon name="settings" />
+<PhosphorIcon icon={RocketLaunchIcon} label="Launch" />
 ```
 
 ## Design invariants
 
-- Every visible corner uses the shared 4 px radius token.
+- Every interface surface uses the shared 4 px radius token; intrinsically circular indicators use the dedicated circle token.
 - Semantic tokens are the public styling contract.
 - Red is reserved for primary action, focus, current navigation, and selected state.
 - Monospace is reserved for code, identifiers, commands, measurements, and machine-readable values.

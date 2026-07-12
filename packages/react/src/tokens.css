@@ -2,6 +2,7 @@
 :root[data-theme="light"],
 [data-bui-theme="light"] {
   --bui-radius: 4px;
+  --bui-radius-circle: 50%;
   --bui-font-sans: Inter, "Helvetica Neue", Helvetica, Arial, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
   --bui-font-mono: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
   --bui-color-canvas: #f4f4f1;

@@ -1,4 +1,4 @@
-import { BaseUIProvider, Button, Card, CardContent, CardHeader, Heading, Stack, Text } from "@baseui.sh/react";
+import { BaseUIProvider, Button, Card, CardContent, CardHeader, Heading, Icon, Stack, Text } from "@baseui.sh/react";
 import "@baseui.sh/react/styles.css";
 
 export function App() {
@@ -12,7 +12,7 @@ export function App() {
           <CardContent>
             <Stack>
               <Text>This application imports the published package exactly as another project would.</Text>
-              <Button>Continue</Button>
+              <Button leadingIcon={<Icon name="arrowRight" />}>Continue</Button>
             </Stack>
           </CardContent>
         </Card>

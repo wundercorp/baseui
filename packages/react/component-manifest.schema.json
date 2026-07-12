@@ -3,23 +3,81 @@
   "$id": "https://baseui.sh/schema/component-manifest.schema.json",
   "title": "baseui.sh component manifest",
   "type": "object",
-  "required": ["name", "version", "radius", "themes", "categories"],
+  "required": [
+    "name",
+    "version",
+    "radius",
+    "themes",
+    "categories",
+    "iconLibrary"
+  ],
   "properties": {
-    "name": { "type": "string", "const": "baseui.sh" },
-    "version": { "type": "string" },
-    "radius": { "type": "string", "const": "4px" },
+    "name": {
+      "type": "string",
+      "const": "baseui.sh"
+    },
+    "version": {
+      "type": "string"
+    },
+    "radius": {
+      "type": "string",
+      "const": "4px"
+    },
     "themes": {
       "type": "array",
-      "items": { "enum": ["light", "dark", "system"] },
+      "items": {
+        "enum": [
+          "light",
+          "dark",
+          "system"
+        ]
+      },
       "uniqueItems": true
     },
     "categories": {
       "type": "object",
       "additionalProperties": {
         "type": "array",
-        "items": { "type": "string" },
+        "items": {
+          "type": "string"
+        },
         "uniqueItems": true
       }
+    },
+    "iconLibrary": {
+      "type": "object",
+      "required": [
+        "name",
+        "package",
+        "version",
+        "semanticIcons",
+        "entryPoints"
+      ],
+      "properties": {
+        "name": {
+          "type": "string",
+          "const": "Phosphor Icons"
+        },
+        "package": {
+          "type": "string",
+          "const": "@phosphor-icons/react"
+        },
+        "version": {
+          "type": "string"
+        },
+        "semanticIcons": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "entryPoints": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "uniqueItems": true
+        }
+      },
+      "additionalProperties": false
     }
   },
   "additionalProperties": false

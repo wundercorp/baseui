@@ -20,7 +20,7 @@ The red product accent identifies the primary action, keyboard focus, selected n
 
 ### Compact geometry
 
-The global radius is exactly `4px`. It applies to controls, cards, overlays, status marks, avatars, progress tracks, code surfaces, and navigation states. Product code must not introduce alternate radii.
+The global surface radius is exactly `4px`. It applies to controls, cards, overlays, status marks, avatars, progress tracks, code surfaces, and navigation states. Intrinsically circular indicators such as spinners use the dedicated `--bui-radius-circle` token. Product code must not introduce alternate surface radii.
 
 ### Technical detail where it belongs
 

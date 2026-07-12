@@ -14,6 +14,8 @@ const expectedExports = [
   "CommandMenu",
   "useDisclosure",
   "iconNames",
+  "iconRegistry",
+  "PhosphorIcon",
 ];
 
 test("exports the public component surface", async () => {
@@ -22,8 +24,9 @@ test("exports the public component surface", async () => {
     assert.ok(library[exportName], `${exportName} must be exported`);
     assert.ok(["function", "object"].includes(typeof library[exportName]));
   }
-  assert.equal(library.iconNames.length, 35);
-  assert.equal(new Set(library.iconNames).size, 35);
+  assert.equal(library.iconNames.length, 36);
+  assert.equal(new Set(library.iconNames).size, 36);
+  assert.equal(Object.keys(library.iconRegistry).length, 36);
 });
 
 test("uses the shared four pixel radius for visible component corners", async () => {
@@ -32,9 +35,11 @@ test("uses the shared four pixel radius for visible component corners", async ()
     readFile(new URL("../dist/tokens.css", import.meta.url), "utf8"),
   ]);
   assert.match(tokens, /--bui-radius:\s*4px/);
+  assert.match(tokens, /--bui-radius-circle:\s*50%/);
   const radiusDeclarations = [...stylesheet.matchAll(/border-radius:\s*([^;]+);/g)].map((match) => match[1].trim());
   assert.ok(radiusDeclarations.length > 20);
-  assert.deepEqual([...new Set(radiusDeclarations)], ["var(--bui-radius)"]);
+  assert.deepEqual([...new Set(radiusDeclarations)].sort(), ["var(--bui-radius)", "var(--bui-radius-circle)"].sort());
+  assert.match(stylesheet, /\.bui-spinner[\s\S]*border-radius:\s*var\(--bui-radius-circle\)/);
 });
 
 test("contains reduced motion and focus-visible support", async () => {
@@ -71,7 +76,8 @@ test("supports category entry points", async () => {
   assert.equal(typeof overlays.Dialog, "function");
   assert.equal(typeof foundations.BaseUIProvider, "function");
   assert.equal(tokens.baseUITokens.radius, 4);
-  assert.equal(icons.iconNames.length, 35);
+  assert.equal(icons.iconNames.length, 36);
+  assert.equal(typeof icons.PhosphorIcon, "function");
 });
 
 test("is configured as a public package", async () => {
@@ -81,4 +87,16 @@ test("is configured as a public package", async () => {
   assert.equal(packageJson.publishConfig.access, "public");
   assert.equal(packageJson.publishConfig.provenance, true);
   assert.equal(packageJson.peerDependencies.react, ">=18.2.0 <20");
+  assert.equal(packageJson.dependencies["@phosphor-icons/react"], "^2.1.10");
+  assert.ok(packageJson.exports["./phosphor"]);
+  assert.ok(packageJson.exports["./phosphor/ssr"]);
+});
+
+test("exports the full Phosphor CSR and SSR entry points", async () => {
+  const [csr, ssr] = await Promise.all([
+    import("../dist/phosphor.js"),
+    import("../dist/phosphor-ssr.js"),
+  ]);
+  assert.equal(typeof csr.RocketLaunchIcon, "object");
+  assert.equal(typeof ssr.RocketLaunchIcon, "object");
 });

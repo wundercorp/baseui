@@ -1,3 +1,5 @@
+import { Icon, PhosphorIconContext, type BaseUIPhosphorIconProps } from "../icons.js";
+
 import {
   createContext,
   forwardRef,
@@ -41,6 +43,7 @@ export interface BaseUIProviderProps {
   theme?: BaseUITheme;
   defaultTheme?: BaseUITheme;
   onThemeChange?: (theme: BaseUITheme) => void;
+  iconDefaults?: BaseUIPhosphorIconProps;
   className?: string;
 }
 
@@ -49,6 +52,7 @@ export function BaseUIProvider({
   theme,
   defaultTheme = "light",
   onThemeChange,
+  iconDefaults,
   className,
 }: BaseUIProviderProps) {
   const [internalTheme, setInternalTheme] = useState<BaseUITheme>(defaultTheme);
@@ -60,12 +64,20 @@ export function BaseUIProvider({
     onThemeChange?.(nextTheme);
   }, [onThemeChange, theme]);
   const value = useMemo(() => ({ theme: activeTheme, setTheme }), [activeTheme, setTheme]);
+  const phosphorDefaults = useMemo<BaseUIPhosphorIconProps>(() => ({
+    color: "currentColor",
+    size: 20,
+    weight: "regular",
+    ...iconDefaults,
+  }), [iconDefaults]);
 
   return (
     <BaseUIContext.Provider value={value}>
-      <div className={classNames("bui-root", className)} data-bui-theme={activeTheme}>
-        {children}
-      </div>
+      <PhosphorIconContext.Provider value={phosphorDefaults}>
+        <div className={classNames("bui-root", className)} data-bui-theme={activeTheme}>
+          {children}
+        </div>
+      </PhosphorIconContext.Provider>
     </BaseUIContext.Provider>
   );
 }
@@ -412,7 +424,7 @@ export function Alert({
         <div className="bui-alert-body">{children}</div>
         {actions ? <div className="bui-alert-actions">{actions}</div> : null}
       </div>
-      {onDismiss ? <IconButton label={dismissLabel} size="small" onClick={onDismiss}>×</IconButton> : null}
+      {onDismiss ? <IconButton label={dismissLabel} size="small" onClick={onDismiss}><Icon name="close" size={16} /></IconButton> : null}
     </div>
   );
 }
@@ -606,7 +618,7 @@ export const FileUpload = forwardRef<HTMLInputElement, FileUploadProps>(function
   return (
     <label className={classNames("bui-file-upload", className)}>
       <input ref={ref} type="file" {...props} />
-      <span className="bui-file-upload-icon" aria-hidden="true">↑</span>
+      <span className="bui-file-upload-icon" aria-hidden="true"><Icon name="upload" size={24} /></span>
       <strong>{title}</strong>
       <small>{description}</small>
     </label>
@@ -627,8 +639,8 @@ export const SearchInput = forwardRef<HTMLInputElement, SearchInputProps>(functi
       ref={ref}
       type="search"
       value={value}
-      startAdornment={<span aria-hidden="true">⌕</span>}
-      endAdornment={onClear && value ? <IconButton label={clearLabel} size="small" onClick={onClear}>×</IconButton> : undefined}
+      startAdornment={<Icon name="search" size={16} />}
+      endAdornment={onClear && value ? <IconButton label={clearLabel} size="small" onClick={onClear}><Icon name="close" size={14} /></IconButton> : undefined}
       {...props}
     />
   );
@@ -721,11 +733,11 @@ export function Pagination({ page, pageCount, onPageChange, siblingCount = 1, cl
 
   return (
     <nav className={classNames("bui-pagination", className)} aria-label="Pagination">
-      <IconButton label="Previous page" size="small" disabled={page <= 1} onClick={() => onPageChange(page - 1)}>‹</IconButton>
+      <IconButton label="Previous page" size="small" disabled={page <= 1} onClick={() => onPageChange(page - 1)}><Icon name="chevronLeft" size={16} /></IconButton>
       {visiblePages.map((item, index) => item === "ellipsis" ? <span key={`ellipsis-${index}`} className="bui-pagination-ellipsis">…</span> : (
         <button key={item} type="button" className={item === page ? "is-active" : undefined} aria-current={item === page ? "page" : undefined} onClick={() => onPageChange(item)}>{item}</button>
       ))}
-      <IconButton label="Next page" size="small" disabled={page >= pageCount} onClick={() => onPageChange(page + 1)}>›</IconButton>
+      <IconButton label="Next page" size="small" disabled={page >= pageCount} onClick={() => onPageChange(page + 1)}><Icon name="chevronRight" size={16} /></IconButton>
     </nav>
   );
 }
@@ -971,7 +983,7 @@ export interface StepperItem {
 }
 
 export function Stepper({ items, orientation = "horizontal", className }: { items: StepperItem[]; orientation?: "horizontal" | "vertical"; className?: string }) {
-  return <ol className={classNames("bui-stepper", `bui-stepper-${orientation}`, className)}>{items.map((item, index) => <li key={index} className={`is-${item.status ?? "upcoming"}`}><span className="bui-stepper-marker">{item.status === "complete" ? "✓" : index + 1}</span><span className="bui-stepper-copy"><strong>{item.title}</strong>{item.description ? <small>{item.description}</small> : null}</span></li>)}</ol>;
+  return <ol className={classNames("bui-stepper", `bui-stepper-${orientation}`, className)}>{items.map((item, index) => <li key={index} className={`is-${item.status ?? "upcoming"}`}><span className="bui-stepper-marker">{item.status === "complete" ? <Icon name="check" size={14} weight="bold" /> : index + 1}</span><span className="bui-stepper-copy"><strong>{item.title}</strong>{item.description ? <small>{item.description}</small> : null}</span></li>)}</ol>;
 }
 
 export interface TimelineItem {
@@ -1014,7 +1026,7 @@ export function Dialog({ open, title, description, footer, onClose, closeLabel =
   return (
     <div className="bui-overlay" role="presentation" onMouseDown={(event) => { if (event.target === event.currentTarget) onClose(); }}>
       <div className={classNames("bui-dialog", `bui-dialog-${size}`, className)} role="dialog" aria-modal="true" {...props}>
-        <div className="bui-dialog-header"><div><Heading level={2} size="h3">{title}</Heading>{description ? <Text size="sm">{description}</Text> : null}</div><IconButton label={closeLabel} onClick={onClose}>×</IconButton></div>
+        <div className="bui-dialog-header"><div><Heading level={2} size="h3">{title}</Heading>{description ? <Text size="sm">{description}</Text> : null}</div><IconButton label={closeLabel} onClick={onClose}><Icon name="close" size={18} /></IconButton></div>
         <div className="bui-dialog-content">{children}</div>
         {footer ? <div className="bui-dialog-footer">{footer}</div> : null}
       </div>
@@ -1035,7 +1047,7 @@ export function Drawer({ open, title, description, footer, onClose, closeLabel =
     return () => window.removeEventListener("keydown", handleKeyDown);
   }, [open, onClose]);
   if (!open) return null;
-  return <div className="bui-overlay" role="presentation" onMouseDown={(event) => { if (event.target === event.currentTarget) onClose(); }}><aside className={classNames("bui-drawer", `bui-drawer-${side}`, `bui-drawer-${width}`, className)} role="dialog" aria-modal="true" {...props}><div className="bui-dialog-header"><div><Heading level={2} size="h3">{title}</Heading>{description ? <Text size="sm">{description}</Text> : null}</div><IconButton label={closeLabel} onClick={onClose}>×</IconButton></div><div className="bui-dialog-content">{children}</div>{footer ? <div className="bui-dialog-footer">{footer}</div> : null}</aside></div>;
+  return <div className="bui-overlay" role="presentation" onMouseDown={(event) => { if (event.target === event.currentTarget) onClose(); }}><aside className={classNames("bui-drawer", `bui-drawer-${side}`, `bui-drawer-${width}`, className)} role="dialog" aria-modal="true" {...props}><div className="bui-dialog-header"><div><Heading level={2} size="h3">{title}</Heading>{description ? <Text size="sm">{description}</Text> : null}</div><IconButton label={closeLabel} onClick={onClose}><Icon name="close" size={18} /></IconButton></div><div className="bui-dialog-content">{children}</div>{footer ? <div className="bui-dialog-footer">{footer}</div> : null}</aside></div>;
 }
 
 export function Tooltip({ content, children, side = "top", className }: { content: ReactNode; children: ReactNode; side?: "top" | "right" | "bottom" | "left"; className?: string }) {
@@ -1063,7 +1075,7 @@ export interface ToastProps extends Omit<HTMLAttributes<HTMLDivElement>, "title"
 }
 
 export function Toast({ tone = "neutral", title, description, action, onDismiss, className, ...props }: ToastProps) {
-  return <div className={classNames("bui-toast", `bui-tone-${tone}`, className)} role="status" {...props}><div className="bui-toast-marker" /><div className="bui-toast-content"><strong>{title}</strong>{description ? <p>{description}</p> : null}{action ? <div>{action}</div> : null}</div>{onDismiss ? <IconButton label="Dismiss notification" size="small" onClick={onDismiss}>×</IconButton> : null}</div>;
+  return <div className={classNames("bui-toast", `bui-tone-${tone}`, className)} role="status" {...props}><div className="bui-toast-marker" /><div className="bui-toast-content"><strong>{title}</strong>{description ? <p>{description}</p> : null}{action ? <div>{action}</div> : null}</div>{onDismiss ? <IconButton label="Dismiss notification" size="small" onClick={onDismiss}><Icon name="close" size={16} /></IconButton> : null}</div>;
 }
 
 export function ToastRegion({ position = "bottom-right", className, ...props }: HTMLAttributes<HTMLDivElement> & { position?: "top-left" | "top-right" | "bottom-left" | "bottom-right" }) {
@@ -1151,7 +1163,7 @@ export function DataToolbar({ search, filters, actions, className }: { search?: 
 }
 
 export function Tag({ className, onRemove, removeLabel = "Remove", children, ...props }: HTMLAttributes<HTMLSpanElement> & { onRemove?: () => void; removeLabel?: string }) {
-  return <span className={classNames("bui-tag", className)} {...props}>{children}{onRemove ? <button type="button" aria-label={removeLabel} onClick={onRemove}>×</button> : null}</span>;
+  return <span className={classNames("bui-tag", className)} {...props}>{children}{onRemove ? <button type="button" aria-label={removeLabel} onClick={onRemove}><Icon name="close" size={12} /></button> : null}</span>;
 }
 
 export function NotificationBadge({ count, max = 99, label = "notifications", className }: { count: number; max?: number; label?: string; className?: string }) {
@@ -1160,7 +1172,7 @@ export function NotificationBadge({ count, max = 99, label = "notifications", cl
 }
 
 export function Rating({ value, max = 5, label = "Rating", readOnly = true, onChange, className }: { value: number; max?: number; label?: string; readOnly?: boolean; onChange?: (value: number) => void; className?: string }) {
-  return <div className={classNames("bui-rating", className)} role={readOnly ? "img" : "radiogroup"} aria-label={`${label}: ${value} of ${max}`}>{Array.from({ length: max }, (_, index) => { const ratingValue = index + 1; return readOnly ? <span key={ratingValue} className={ratingValue <= value ? "is-active" : undefined} aria-hidden="true">★</span> : <button key={ratingValue} type="button" role="radio" aria-label={`${ratingValue} of ${max}`} aria-checked={ratingValue === value} className={ratingValue <= value ? "is-active" : undefined} onClick={() => onChange?.(ratingValue)}>★</button>; })}</div>;
+  return <div className={classNames("bui-rating", className)} role={readOnly ? "img" : "radiogroup"} aria-label={`${label}: ${value} of ${max}`}>{Array.from({ length: max }, (_, index) => { const ratingValue = index + 1; const active = ratingValue <= value; const star = <Icon name="star" size={20} weight={active ? "fill" : "regular"} />; return readOnly ? <span key={ratingValue} className={active ? "is-active" : undefined} aria-hidden="true">{star}</span> : <button key={ratingValue} type="button" role="radio" aria-label={`${ratingValue} of ${max}`} aria-checked={ratingValue === value} className={active ? "is-active" : undefined} onClick={() => onChange?.(ratingValue)}>{star}</button>; })}</div>;
 }
 
 export function DateInput(props: InputProps) {

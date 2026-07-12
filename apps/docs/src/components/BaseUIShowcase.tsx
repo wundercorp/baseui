@@ -90,6 +90,7 @@ import {
   Topbar,
   VisuallyHidden,
   type BaseUITheme,
+  type IconName,
 } from "@baseui.sh/react";
 
 type ShowcaseSection =
@@ -103,16 +104,16 @@ type ShowcaseSection =
   | "overlays"
   | "patterns";
 
-const sections: Array<{ id: ShowcaseSection; label: string; icon: string }> = [
-  { id: "overview", label: "Overview", icon: "◫" },
-  { id: "foundations", label: "Foundations", icon: "◧" },
-  { id: "actions", label: "Actions", icon: "↗" },
-  { id: "forms", label: "Forms", icon: "⌁" },
-  { id: "data", label: "Data display", icon: "▤" },
-  { id: "feedback", label: "Feedback", icon: "!" },
-  { id: "navigation", label: "Navigation", icon: "≡" },
-  { id: "overlays", label: "Overlays", icon: "□" },
-  { id: "patterns", label: "Patterns", icon: "◆" },
+const sections: Array<{ id: ShowcaseSection; label: string; icon: IconName }> = [
+  { id: "overview", label: "Overview", icon: "dashboard" },
+  { id: "foundations", label: "Foundations", icon: "box" },
+  { id: "actions", label: "Actions", icon: "arrowRight" },
+  { id: "forms", label: "Forms", icon: "file" },
+  { id: "data", label: "Data display", icon: "database" },
+  { id: "feedback", label: "Feedback", icon: "info" },
+  { id: "navigation", label: "Navigation", icon: "menu" },
+  { id: "overlays", label: "Overlays", icon: "box" },
+  { id: "patterns", label: "Patterns", icon: "chart" },
 ];
 
 function SectionHeader({
@@ -189,7 +190,7 @@ function OverviewSection() {
       />
 
       <Grid columns={4} gap="md">
-        <MetricCard label="Components" value="88" change="Production-ready" trend="up" detail="React primitives" />
+        <MetricCard label="Components" value="89" change="Production-ready" trend="up" detail="React primitives" />
         <MetricCard label="Radius" value="4px" change="Invariant" trend="neutral" detail="Every surface" />
         <MetricCard label="Themes" value="2" change="Light + dark" trend="up" detail="Semantic tokens" />
         <MetricCard label="Dependencies" value="0" change="Runtime UI deps" trend="up" detail="React only" />
@@ -234,7 +235,7 @@ function OverviewSection() {
             <Eyebrow>Coverage</Eyebrow>
             <Heading level={2} size="h3">Component map</Heading>
           </div>
-          <Badge tone="accent">88 components</Badge>
+          <Badge tone="accent">89 components</Badge>
         </CardHeader>
         <CardContent>
           <Grid columns={3} gap="lg">
@@ -285,7 +286,7 @@ function FoundationsSection() {
         </Grid>
       </ComponentExample>
 
-      <ComponentExample title="Icon system" description="A first-party 24 px stroke set for navigation, status, action, and technical concepts." fullWidth>
+      <ComponentExample title="Icon system" description="Phosphor-backed semantic icons for navigation, status, action, and technical concepts." fullWidth>
         <Grid columns={6} gap="md">
           {iconNames.map((name) => (
             <Box key={name} padding="medium" surface="subtle">
@@ -323,7 +324,7 @@ function FoundationsSection() {
             ))}
           </Stack>
         </ComponentExample>
-        <ComponentExample title="Radius and elevation" description="4 px everywhere. Elevation is reserved for floating layers.">
+        <ComponentExample title="Radius and elevation" description="4 px for interface surfaces. Intrinsically circular indicators use the circle token.">
           <Grid columns={2} gap="md">
             <TokenPreview name="--bui-radius" value="4px" sample={<div className="baseui-radius-sample" />} />
             <TokenPreview name="--bui-shadow-low" value="surface" sample={<Card className="baseui-shadow-low" />} />
@@ -380,9 +381,9 @@ function ActionsSection() {
         </ComponentExample>
         <ComponentExample title="Icon buttons and tooltips">
           <Inline gap="sm">
-            <Tooltip content="Refresh data"><IconButton label="Refresh">↻</IconButton></Tooltip>
-            <Tooltip content="Open settings"><IconButton label="Settings" variant="secondary">⚙</IconButton></Tooltip>
-            <Tooltip content="Delete item"><IconButton label="Delete" variant="danger">×</IconButton></Tooltip>
+            <Tooltip content="Refresh data"><IconButton label="Refresh"><Icon name="refresh" /></IconButton></Tooltip>
+            <Tooltip content="Open settings"><IconButton label="Settings" variant="secondary"><Icon name="settings" /></IconButton></Tooltip>
+            <Tooltip content="Delete item"><IconButton label="Delete" variant="danger"><Icon name="trash" /></IconButton></Tooltip>
           </Inline>
         </ComponentExample>
         <ComponentExample title="Button group">
@@ -475,7 +476,7 @@ function DataSection() {
         <Grid columns={3} gap="md">
           <Card><CardHeader><Heading level={3} size="h5">Default card</Heading><Badge>Base</Badge></CardHeader><CardContent><Text>Primary surface for grouped content and actions.</Text></CardContent></Card>
           <Card variant="subtle"><CardHeader><Heading level={3} size="h5">Subtle card</Heading></CardHeader><CardContent><Text>Lower-emphasis grouping inside a larger workflow.</Text></CardContent></Card>
-          <Card variant="interactive"><CardHeader><Heading level={3} size="h5">Interactive card</Heading><span aria-hidden="true">→</span></CardHeader><CardContent><Text>Hover treatment signals navigation or selection.</Text></CardContent></Card>
+          <Card variant="interactive"><CardHeader><Heading level={3} size="h5">Interactive card</Heading><Icon name="arrowRight" /></CardHeader><CardContent><Text>Hover treatment signals navigation or selection.</Text></CardContent></Card>
         </Grid>
       </ComponentExample>
       <ComponentExample title="Metrics and status" fullWidth>
@@ -553,7 +554,7 @@ function FeedbackSection() {
         <ComponentExample title="Callouts and empty states">
           <Stack gap="md">
             <Callout tone="info" title="Local-first by default">Cloud routing is used only when the selected workflow requires it.</Callout>
-            <EmptyState compact icon="◇" title="No gateways yet" description="Connect a gateway to route requests beyond your local runtime." actions={<Button>Add gateway</Button>} />
+            <EmptyState compact icon={<Icon name="cloud" size={28} />} title="No gateways yet" description="Connect a gateway to route requests beyond your local runtime." actions={<Button>Add gateway</Button>} />
           </Stack>
         </ComponentExample>
         <ComponentExample title="Loading states">
@@ -597,8 +598,8 @@ function NavigationSection() {
       </Grid>
       <ComponentExample title="Sidebar and topbar composition" fullWidth>
         <div className="baseui-shell-preview">
-          <Sidebar brand={<Inline><LogoMark label="B" /><strong>baseui.sh</strong></Inline>} activeItem="components" items={[{ id: "overview", label: "Overview", icon: "◫" }, { id: "components", label: "Components", icon: "◆", badge: <NotificationBadge count={88} /> }, { id: "tokens", label: "Tokens", icon: "◧" }, { id: "patterns", label: "Patterns", icon: "▤" }]} footer={<StatusBadge status="online">System healthy</StatusBadge>} />
-          <div className="baseui-shell-preview-workspace"><Topbar title="Components" actions={<Inline><IconButton label="Search">⌕</IconButton><Avatar initials="BU" size="small" /></Inline>} /><div className="baseui-shell-preview-content"><PageHeader eyebrow="Library" title="Components" description="Reusable building blocks for product interfaces." /></div></div>
+          <Sidebar brand={<Inline><LogoMark label="B" /><strong>baseui.sh</strong></Inline>} activeItem="components" items={[{ id: "overview", label: "Overview", icon: <Icon name="dashboard" /> }, { id: "components", label: "Components", icon: <Icon name="box" />, badge: <NotificationBadge count={89} /> }, { id: "tokens", label: "Tokens", icon: <Icon name="settings" /> }, { id: "patterns", label: "Patterns", icon: <Icon name="chart" /> }]} footer={<StatusBadge status="online">System healthy</StatusBadge>} />
+          <div className="baseui-shell-preview-workspace"><Topbar title="Components" actions={<Inline><IconButton label="Search"><Icon name="search" /></IconButton><Avatar initials="BU" size="small" /></Inline>} /><div className="baseui-shell-preview-content"><PageHeader eyebrow="Library" title="Components" description="Reusable building blocks for product interfaces." /></div></div>
         </div>
       </ComponentExample>
     </Stack>
@@ -631,7 +632,7 @@ function OverlaysSection() {
           <DropdownMenu trigger={<Button variant="secondary">More actions</Button>}><DropdownItem>Duplicate model</DropdownItem><DropdownItem>View files</DropdownItem><DropdownItem>Export metadata</DropdownItem><Divider /><DropdownItem destructive>Remove model</DropdownItem></DropdownMenu>
         </ComponentExample>
         <ComponentExample title="Tooltips">
-          <Inline gap="lg"><Tooltip content="Copy model identifier"><Button variant="ghost">Hover me</Button></Tooltip><Tooltip content="Refresh runtime status" side="right"><IconButton label="Refresh">↻</IconButton></Tooltip></Inline>
+          <Inline gap="lg"><Tooltip content="Copy model identifier"><Button variant="ghost">Hover me</Button></Tooltip><Tooltip content="Refresh runtime status" side="right"><IconButton label="Refresh"><Icon name="refresh" /></IconButton></Tooltip></Inline>
         </ComponentExample>
         <ComponentExample title="Command menu">
           <CommandMenu query="" onQueryChange={() => undefined} groups={[{ label: "Navigation", items: [{ id: "models", label: "Open models", description: "Browse installed and available models", shortcut: "G M" }, { id: "metrics", label: "Open metrics", description: "Inspect local performance", shortcut: "G P" }] }, { label: "Actions", items: [{ id: "install", label: "Install a model", shortcut: "I" }, { id: "connect", label: "Connect local runtime", shortcut: "C" }] }]} />
@@ -655,7 +656,7 @@ function PatternsSection() {
       </ComponentExample>
       <Grid columns={2} gap="lg">
         <ComponentExample title="Onboarding pattern">
-          <Stack gap="lg"><Stepper items={[{ title: "Runtime", status: "complete" }, { title: "Model", status: "current" }, { title: "Test", status: "upcoming" }]} /><EmptyState compact icon="↓" title="Install your first model" description="Start with a compact model that runs on most modern laptops." actions={<Inline><Button>Install Qwen2.5</Button><Button variant="secondary">Browse catalogue</Button></Inline>} /></Stack>
+          <Stack gap="lg"><Stepper items={[{ title: "Runtime", status: "complete" }, { title: "Model", status: "current" }, { title: "Test", status: "upcoming" }]} /><EmptyState compact icon={<Icon name="download" size={28} />} title="Install your first model" description="Start with a compact model that runs on most modern laptops." actions={<Inline><Button>Install Qwen2.5</Button><Button variant="secondary">Browse catalogue</Button></Inline>} /></Stack>
         </ComponentExample>
         <ComponentExample title="Account pattern">
           <Stack gap="lg"><Inline gap="md"><Avatar initials="AM" size="xlarge" status="online" /><div><Heading level={3} size="h4">Alex Morgan</Heading><Text size="sm">alex@example.com</Text><Inline><Badge tone="accent">Pro</Badge><StatusBadge status="online">Active</StatusBadge></Inline></div></Inline><DescriptionList><DescriptionItem term="Organization">Wunder Corp</DescriptionItem><DescriptionItem term="Region">Switzerland</DescriptionItem><DescriptionItem term="Member since">March 2026</DescriptionItem></DescriptionList><Button variant="secondary" fullWidth>Edit profile</Button></Stack>
@@ -670,7 +671,7 @@ function PatternsSection() {
       <ComponentExample title="Accordion and collapsible documentation patterns" fullWidth>
         <div id="installation" />
         <Stack gap="lg">
-          <Accordion><AccordionItem title="Installation" description="Add the package and global stylesheet." open><CodeBlock>{`npm install @baseui.sh/react\n\nimport "@baseui.sh/react/styles.css";`}</CodeBlock></AccordionItem><AccordionItem title="Theming" description="Set light, dark, or system mode at the provider boundary."><CodeBlock>{`<BaseUIProvider theme="dark">\n  <Application />\n</BaseUIProvider>`}</CodeBlock></AccordionItem><AccordionItem title="Design invariants" description="Rules that should not be overridden in product code."><List divided><ListItem title="Radius" description="Always 4 px across controls, surfaces, and floating layers." /><ListItem title="Accent" description="Reserved for primary actions, focus, and active navigation." /><ListItem title="Monospace" description="Used for code, identifiers, measurements, and technical values only." /></List></AccordionItem></Accordion>
+          <Accordion><AccordionItem title="Installation" description="Add the package and global stylesheet." open><CodeBlock>{`npm install @baseui.sh/react\n\nimport "@baseui.sh/react/styles.css";`}</CodeBlock></AccordionItem><AccordionItem title="Theming" description="Set light, dark, or system mode at the provider boundary."><CodeBlock>{`<BaseUIProvider theme="dark">\n  <Application />\n</BaseUIProvider>`}</CodeBlock></AccordionItem><AccordionItem title="Design invariants" description="Rules that should not be overridden in product code."><List divided><ListItem title="Radius" description="4 px across controls, surfaces, and floating layers; circular indicators use the circle token." /><ListItem title="Accent" description="Reserved for primary actions, focus, and active navigation." /><ListItem title="Monospace" description="Used for code, identifiers, measurements, and technical values only." /></List></AccordionItem></Accordion>
           <Collapsible title="Compact disclosure alias"><Text size="sm">Collapsible provides a concise disclosure API while retaining native details semantics.</Text></Collapsible>
         </Stack>
       </ComponentExample>
@@ -699,13 +700,13 @@ export function BaseUIShowcase({ theme, onThemeChange }: { theme: "light" | "dar
         sidebar={
           <Sidebar
             brand={<button className="baseui-showcase-brand" type="button" onClick={() => setActiveSection("overview")}><LogoMark label="B" /><span><strong>baseui.sh</strong><small>Design system</small></span></button>}
-            items={sections.map((section) => ({ id: section.id, label: section.label, icon: section.icon }))}
+            items={sections.map((section) => ({ id: section.id, label: section.label, icon: <Icon name={section.icon} size={18} /> }))}
             activeItem={activeSection}
             onItemSelect={(item) => setActiveSection(item.id as ShowcaseSection)}
             footer={<Stack gap="sm"><StatusBadge status="online">v0.1.0</StatusBadge><Text size="xs">Apache-2.0 · React 18+</Text></Stack>}
           />
         }
-        topbar={<Topbar title={activeLabel} leading={<Breadcrumbs items={[{ label: "baseui.sh" }, { label: activeLabel }]} />} actions={<Inline><Tooltip content="View source repository"><IconButton label="View source repository" onClick={() => window.open("https://github.com/baseui-sh/baseui", "_blank", "noopener,noreferrer")}>↗</IconButton></Tooltip><Button variant="secondary" size="small" onClick={onThemeChange}>{theme === "dark" ? "Light mode" : "Dark mode"}</Button><Avatar initials="BU" size="small" /></Inline>} />}
+        topbar={<Topbar title={activeLabel} leading={<Breadcrumbs items={[{ label: "baseui.sh" }, { label: activeLabel }]} />} actions={<Inline><Tooltip content="View source repository"><IconButton label="View source repository" onClick={() => window.open("https://github.com/wundercorp/baseui", "_blank", "noopener,noreferrer")}><Icon name="externalLink" /></IconButton></Tooltip><Button variant="secondary" size="small" onClick={onThemeChange}>{theme === "dark" ? "Light mode" : "Dark mode"}</Button><Avatar initials="BU" size="small" /></Inline>} />}
       >
         <Container size="wide">{content}</Container>
       </AppShell>
