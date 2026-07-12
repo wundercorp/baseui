@@ -1,13 +1,13 @@
 # Icons
 
-baseui.sh uses Phosphor Icons as its canonical icon family. `@phosphor-icons/react` is a production dependency of `@baseui.sh/react`.
+baseui.sh uses Phosphor Icons as its canonical icon family. `@phosphor-icons/react` is a production dependency of `@wundercorp/baseui`.
 
 ## Semantic icons
 
 Use `Icon` for stable concepts owned by the design system. Semantic names isolate application code from upstream glyph naming changes.
 
 ```tsx
-import { Icon } from "@baseui.sh/react/icons";
+import { Icon } from "@wundercorp/baseui/icons";
 
 <Icon name="search" />
 <Icon name="warning" weight="fill" label="Warning" />
@@ -18,8 +18,8 @@ Decorative icons are hidden from assistive technology. Set `label` when the icon
 ## Full Phosphor library
 
 ```tsx
-import { PhosphorIcon } from "@baseui.sh/react/icons";
-import { RocketLaunchIcon } from "@baseui.sh/react/phosphor";
+import { PhosphorIcon } from "@wundercorp/baseui/icons";
+import { RocketLaunchIcon } from "@wundercorp/baseui/phosphor";
 
 <PhosphorIcon icon={RocketLaunchIcon} label="Launch" />
 ```
@@ -27,7 +27,7 @@ import { RocketLaunchIcon } from "@baseui.sh/react/phosphor";
 For server components and SSR-only environments:
 
 ```tsx
-import { RocketLaunchIcon } from "@baseui.sh/react/phosphor/ssr";
+import { RocketLaunchIcon } from "@wundercorp/baseui/phosphor/ssr";
 ```
 
 For the smallest development graph, consumers may import individual upstream glyph modules directly from `@phosphor-icons/react/dist/csr/<IconName>`.

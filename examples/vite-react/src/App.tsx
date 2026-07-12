@@ -1,5 +1,5 @@
-import { BaseUIProvider, Button, Card, CardContent, CardHeader, Heading, Icon, Stack, Text } from "@baseui.sh/react";
-import "@baseui.sh/react/styles.css";
+import { BaseUIProvider, Button, Card, CardContent, CardHeader, Heading, Icon, Stack, Text } from "@wundercorp/baseui";
+import "@wundercorp/baseui/styles.css";
 
 export function App() {
   return (

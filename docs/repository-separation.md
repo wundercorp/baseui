@@ -15,8 +15,8 @@ Applications integrate through the package exports and semantic CSS variables on
 
 ## Migration from the original monorepo
 
-1. Publish `@baseui.sh/react` from this repository.
+1. Publish `@wundercorp/baseui` from this repository.
 2. Replace the old workspace package reference with a semver dependency.
-3. Keep `@baseui.sh/react/styles.css` imported once at the application entry point.
+3. Keep `@wundercorp/baseui/styles.css` imported once at the application entry point.
 4. Remove the copied package directory from the application monorepo.
 5. Use automated dependency updates for future releases.

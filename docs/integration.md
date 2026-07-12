@@ -3,19 +3,19 @@
 ## Standard React application
 
 ```bash
-npm install @baseui.sh/react
+npm install @wundercorp/baseui
 ```
 
 Import the stylesheet once near the application entry point:
 
 ```tsx
-import "@baseui.sh/react/styles.css";
+import "@wundercorp/baseui/styles.css";
 ```
 
 Wrap the product surface:
 
 ```tsx
-import { BaseUIProvider } from "@baseui.sh/react";
+import { BaseUIProvider } from "@wundercorp/baseui";
 
 root.render(
   <BaseUIProvider theme="system">
@@ -29,8 +29,8 @@ root.render(
 Category imports keep feature ownership explicit:
 
 ```tsx
-import { Button } from "@baseui.sh/react/actions";
-import { Field, Input } from "@baseui.sh/react/forms";
+import { Button } from "@wundercorp/baseui/actions";
+import { Field, Input } from "@wundercorp/baseui/forms";
 ```
 
 ## Existing applications
@@ -50,7 +50,7 @@ Use a normal workspace dependency during development:
 ```json
 {
   "dependencies": {
-    "@baseui.sh/react": "workspace:*"
+    "@wundercorp/baseui": "workspace:*"
   }
 }
 ```

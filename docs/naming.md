@@ -1,6 +1,6 @@
 # Naming and project identity
 
-baseui.sh is the project and design-language name. The npm package is `@baseui.sh/react`.
+baseui.sh is the project and design-language name. The npm package is `@wundercorp/baseui`.
 
 There are existing open-source projects named Base UI and Base Web, including packages using `@base-ui/react` and `baseui`. baseui.sh must remain visually and verbally distinct and must not imply affiliation, compatibility, endorsement, or shared maintainership.
 

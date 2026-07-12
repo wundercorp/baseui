@@ -91,7 +91,7 @@ import {
   VisuallyHidden,
   type BaseUITheme,
   type IconName,
-} from "@baseui.sh/react";
+} from "@wundercorp/baseui";
 
 type ShowcaseSection =
   | "overview"
@@ -309,7 +309,7 @@ function FoundationsSection() {
           <Text size="lg">Large body copy for introductions and important explanatory content.</Text>
           <Text>Default body copy for product interfaces, forms, and documentation.</Text>
           <Text size="sm">Secondary detail and compact supporting information.</Text>
-          <Inline><Eyebrow>Eyebrow label</Eyebrow><Label>Form label</Label><Code>npm install @baseui.sh/react</Code><Kbd>⌘ K</Kbd></Inline>
+          <Inline><Eyebrow>Eyebrow label</Eyebrow><Label>Form label</Label><Code>npm install @wundercorp/baseui</Code><Kbd>⌘ K</Kbd></Inline>
         </Stack>
       </ComponentExample>
 
@@ -396,7 +396,7 @@ function ActionsSection() {
         <ComponentExample title="Links and copy actions">
           <Inline gap="lg">
             <Link href="#">Documentation</Link>
-            <CopyButton value="npm install @baseui.sh/react" label="Copy install command" />
+            <CopyButton value="npm install @wundercorp/baseui" label="Copy install command" />
           </Inline>
         </ComponentExample>
         <ComponentExample title="Tags and removable filters">
@@ -671,7 +671,7 @@ function PatternsSection() {
       <ComponentExample title="Accordion and collapsible documentation patterns" fullWidth>
         <div id="installation" />
         <Stack gap="lg">
-          <Accordion><AccordionItem title="Installation" description="Add the package and global stylesheet." open><CodeBlock>{`npm install @baseui.sh/react\n\nimport "@baseui.sh/react/styles.css";`}</CodeBlock></AccordionItem><AccordionItem title="Theming" description="Set light, dark, or system mode at the provider boundary."><CodeBlock>{`<BaseUIProvider theme="dark">\n  <Application />\n</BaseUIProvider>`}</CodeBlock></AccordionItem><AccordionItem title="Design invariants" description="Rules that should not be overridden in product code."><List divided><ListItem title="Radius" description="4 px across controls, surfaces, and floating layers; circular indicators use the circle token." /><ListItem title="Accent" description="Reserved for primary actions, focus, and active navigation." /><ListItem title="Monospace" description="Used for code, identifiers, measurements, and technical values only." /></List></AccordionItem></Accordion>
+          <Accordion><AccordionItem title="Installation" description="Add the package and global stylesheet." open><CodeBlock>{`npm install @wundercorp/baseui\n\nimport "@wundercorp/baseui/styles.css";`}</CodeBlock></AccordionItem><AccordionItem title="Theming" description="Set light, dark, or system mode at the provider boundary."><CodeBlock>{`<BaseUIProvider theme="dark">\n  <Application />\n</BaseUIProvider>`}</CodeBlock></AccordionItem><AccordionItem title="Design invariants" description="Rules that should not be overridden in product code."><List divided><ListItem title="Radius" description="4 px across controls, surfaces, and floating layers; circular indicators use the circle token." /><ListItem title="Accent" description="Reserved for primary actions, focus, and active navigation." /><ListItem title="Monospace" description="Used for code, identifiers, measurements, and technical values only." /></List></AccordionItem></Accordion>
           <Collapsible title="Compact disclosure alias"><Text size="sm">Collapsible provides a concise disclosure API while retaining native details semantics.</Text></Collapsible>
         </Stack>
       </ComponentExample>

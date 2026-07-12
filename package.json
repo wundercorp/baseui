@@ -10,20 +10,22 @@
   ],
   "scripts": {
     "build": "npm run build --workspaces --if-present",
-    "build:library": "npm run build --workspace @baseui.sh/react",
+    "build:library": "npm run build --workspace @wundercorp/baseui",
     "dev": "npm run dev --workspace @baseui.sh/docs",
     "dev:docs": "npm run dev --workspace @baseui.sh/docs",
     "dev:example": "npm run dev --workspace @baseui.sh/example-vite-react",
     "check": "npm run check --workspaces --if-present",
-    "test": "npm run test --workspace @baseui.sh/react",
+    "test": "npm run test --workspace @wundercorp/baseui",
     "ci": "npm run check && npm run test && npm run build && npm run verify:package && npm run verify:consumer",
     "clean": "node scripts/clean.mjs",
-    "pack": "npm pack --workspace @baseui.sh/react --pack-destination .artifacts",
+    "pack": "npm pack --workspace @wundercorp/baseui --pack-destination .artifacts",
     "verify:package": "node scripts/verify-package.mjs",
     "changeset": "changeset",
     "version-packages": "changeset version",
     "release": "npm run build:library && changeset publish",
-    "verify:consumer": "node scripts/verify-consumer.mjs"
+    "verify:consumer": "node scripts/verify-consumer.mjs",
+    "release:dry-run": "npm run ci && npm publish --workspace @wundercorp/baseui --dry-run --access public",
+    "release:inspect": "npm pack --workspace @wundercorp/baseui --dry-run"
   },
   "devDependencies": {
     "@changesets/cli": "^2.29.0",

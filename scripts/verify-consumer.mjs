@@ -12,14 +12,14 @@ const reactVersions = ["18.2.0", "19.2.0"];
 
 const smokeSource = `import React from "react";
 import { renderToStaticMarkup } from "react-dom/server";
-import { BaseUIProvider } from "@baseui.sh/react/foundations";
-import { Button } from "@baseui.sh/react/actions";
-import { Field, Input } from "@baseui.sh/react/forms";
-import { Card } from "@baseui.sh/react/data-display";
-import { Dialog } from "@baseui.sh/react/overlays";
-import { baseUITokens } from "@baseui.sh/react/tokens";
-import { ArrowRightIcon, Icon, PhosphorIcon } from "@baseui.sh/react/icons";
-import manifest from "@baseui.sh/react/manifest.json" with { type: "json" };
+import { BaseUIProvider } from "@wundercorp/baseui/foundations";
+import { Button } from "@wundercorp/baseui/actions";
+import { Field, Input } from "@wundercorp/baseui/forms";
+import { Card } from "@wundercorp/baseui/data-display";
+import { Dialog } from "@wundercorp/baseui/overlays";
+import { baseUITokens } from "@wundercorp/baseui/tokens";
+import { ArrowRightIcon, Icon, PhosphorIcon } from "@wundercorp/baseui/icons";
+import manifest from "@wundercorp/baseui/manifest.json" with { type: "json" };
 
 const markup = renderToStaticMarkup(
   React.createElement(
@@ -53,7 +53,7 @@ try {
   mkdirSync(packDirectory, { recursive: true });
   const packOutput = execFileSync(
     npmCommand,
-    ["pack", "--workspace", "@baseui.sh/react", "--pack-destination", packDirectory, "--json"],
+    ["pack", "--workspace", "@wundercorp/baseui", "--pack-destination", packDirectory, "--json"],
     { cwd: repositoryRoot, encoding: "utf8" },
   );
   const packed = JSON.parse(packOutput)[0];

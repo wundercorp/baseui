@@ -18,6 +18,6 @@ All notable changes to baseui.sh are documented here.
 
 - Adopted `@phosphor-icons/react` as a production dependency.
 - Replaced hand-authored and text glyphs in library components with Phosphor icons.
-- Added `PhosphorIcon`, `iconRegistry`, `@baseui.sh/react/phosphor`, and `@baseui.sh/react/phosphor/ssr`.
+- Added `PhosphorIcon`, `iconRegistry`, `@wundercorp/baseui/phosphor`, and `@wundercorp/baseui/phosphor/ssr`.
 - Added provider-level Phosphor defaults and icon documentation.
 - Preserved 4 px surface geometry while making spinners explicitly circular.

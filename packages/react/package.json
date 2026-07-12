@@ -1,5 +1,5 @@
 {
-  "name": "@baseui.sh/react",
+  "name": "@wundercorp/baseui",
   "version": "0.1.0",
   "description": "A restrained, accessible React component library and design language for product interfaces.",
   "type": "module",
@@ -140,6 +140,7 @@
   },
   "publishConfig": {
     "access": "public",
+    "registry": "https://registry.npmjs.org/",
     "provenance": true
   },
   "engines": {

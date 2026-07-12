@@ -128,9 +128,9 @@
     "version": "^2.1.10",
     "semanticIcons": 36,
     "entryPoints": [
-      "@baseui.sh/react/icons",
-      "@baseui.sh/react/phosphor",
-      "@baseui.sh/react/phosphor/ssr"
+      "@wundercorp/baseui/icons",
+      "@wundercorp/baseui/phosphor",
+      "@wundercorp/baseui/phosphor/ssr"
     ]
   }
 }

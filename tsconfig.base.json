@@ -18,10 +18,10 @@
     "noUncheckedIndexedAccess": true,
     "baseUrl": ".",
     "paths": {
-      "@baseui.sh/react": [
+      "@wundercorp/baseui": [
         "packages/react/src/index.ts"
       ],
-      "@baseui.sh/react/*": [
+      "@wundercorp/baseui/*": [
         "packages/react/src/*"
       ]
     }

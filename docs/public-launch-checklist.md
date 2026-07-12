@@ -18,7 +18,7 @@
 
 ## npm
 
-- Confirm that `@baseui.sh/react` is available and controlled by the project.
+- Confirm that `@wundercorp/baseui` is available and controlled by the project.
 - Configure npm trusted publishing or add an `NPM_TOKEN` secret.
 - Require two-factor authentication for maintainers.
 - Confirm provenance appears on the first public release.
@@ -34,5 +34,5 @@
 
 - Merge a changeset for version `0.1.0` if publishing through the automated workflow.
 - Run `npm ci` and `npm run ci` in the release environment.
-- Run `npm publish --workspace @baseui.sh/react --dry-run --access public`.
+- Run `npm publish --workspace @wundercorp/baseui --dry-run --access public`.
 - Publish, verify installation from the public registry, and create a signed GitHub release.

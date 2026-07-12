@@ -1,5 +1,7 @@
 # baseui.sh
 
+[![npm version](https://img.shields.io/npm/v/@wundercorp/baseui.svg)](https://www.npmjs.com/package/@wundercorp/baseui) [![npm downloads](https://img.shields.io/npm/dm/@wundercorp/baseui.svg)](https://www.npmjs.com/package/@wundercorp/baseui) [![CI](https://github.com/wundercorp/baseui/actions/workflows/ci.yml/badge.svg)](https://github.com/wundercorp/baseui/actions/workflows/ci.yml) [![License](https://img.shields.io/badge/license-Apache--2.0-blue.svg)](LICENSE)
+
 A restrained, accessible component library and design language for React product interfaces.
 
 baseui.sh is maintained as an independent open-source repository. Product applications consume it as a normal package rather than copying dashboard-specific CSS or importing source from another monorepo.
@@ -7,12 +9,18 @@ baseui.sh is maintained as an independent open-source repository. Product applic
 ## Install
 
 ```bash
-npm install @baseui.sh/react
+npm install @wundercorp/baseui
+```
+
+```bash
+pnpm add @wundercorp/baseui
+yarn add @wundercorp/baseui
+bun add @wundercorp/baseui
 ```
 
 ```tsx
-import { BaseUIProvider, Button, Card } from "@baseui.sh/react";
-import "@baseui.sh/react/styles.css";
+import { BaseUIProvider, Button, Card } from "@wundercorp/baseui";
+import "@wundercorp/baseui/styles.css";
 
 export function Application() {
   return (
@@ -30,7 +38,7 @@ export function Application() {
 ```text
 apps/docs                 Living component catalogue
 examples/vite-react       Consumer integration example
-packages/react             Published @baseui.sh/react package
+packages/react             Published @wundercorp/baseui package
 docs                       Design, architecture, accessibility, and release guidance
 .github                    CI, release, issue, and contribution automation
 .changeset                 Versioning and changelog metadata
@@ -52,19 +60,19 @@ npm run verify:package
 The root package exposes the complete API. Category subpaths make ownership and discovery clearer:
 
 ```tsx
-import { Button } from "@baseui.sh/react/actions";
-import { Field, Input } from "@baseui.sh/react/forms";
-import { Dialog } from "@baseui.sh/react/overlays";
-import "@baseui.sh/react/styles.css";
+import { Button } from "@wundercorp/baseui/actions";
+import { Field, Input } from "@wundercorp/baseui/forms";
+import { Dialog } from "@wundercorp/baseui/overlays";
+import "@wundercorp/baseui/styles.css";
 ```
 
 Tokens and icons are independently consumable:
 
 ```tsx
-import { baseUITokens } from "@baseui.sh/react/tokens";
-import { Icon, PhosphorIcon } from "@baseui.sh/react/icons";
-import { RocketLaunchIcon } from "@baseui.sh/react/phosphor";
-import "@baseui.sh/react/tokens.css";
+import { baseUITokens } from "@wundercorp/baseui/tokens";
+import { Icon, PhosphorIcon } from "@wundercorp/baseui/icons";
+import { RocketLaunchIcon } from "@wundercorp/baseui/phosphor";
+import "@wundercorp/baseui/tokens.css";
 
 <Icon name="settings" />
 <PhosphorIcon icon={RocketLaunchIcon} label="Launch" />
@@ -81,7 +89,7 @@ import "@baseui.sh/react/tokens.css";
 
 ## Releasing
 
-Changesets drive package versions and changelogs. Publishing is handled by the release workflow using npm trusted publishing or an `NPM_TOKEN` repository secret. See [RELEASING.md](RELEASING.md).
+Changesets drive versions and changelogs. The first package version is published interactively, then GitHub Actions publishes future versions through npm trusted publishing with OIDC and provenance. See [RELEASING.md](RELEASING.md) and [docs/publishing.md](docs/publishing.md).
 
 ## Open source
 

@@ -10,7 +10,7 @@ const packDirectory = mkdtempSync(join(tmpdir(), "baseui-package-"));
 try {
   const output = execFileSync(
     "npm",
-    ["pack", "--workspace", "@baseui.sh/react", "--pack-destination", packDirectory, "--json"],
+    ["pack", "--workspace", "@wundercorp/baseui", "--pack-destination", packDirectory, "--json"],
     {
       cwd: repositoryRoot,
       encoding: "utf8",

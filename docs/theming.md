@@ -29,11 +29,11 @@ Do not consume raw light or dark palette values in product code.
 ## Token-only usage
 
 ```ts
-import { baseUITokens } from "@baseui.sh/react/tokens";
+import { baseUITokens } from "@wundercorp/baseui/tokens";
 ```
 
 ```css
-@import "@baseui.sh/react/tokens.css";
+@import "@wundercorp/baseui/tokens.css";
 ```
 
 ## Extension policy
